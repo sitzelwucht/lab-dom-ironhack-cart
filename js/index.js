@@ -1,7 +1,7 @@
 // ITERATION 1
 
 function updateSubtotal(product, i) {
-
+  
   let price = document.querySelectorAll('.price span')[i]
   let quantity = document.querySelectorAll('.quantity input')[i]
 
@@ -37,6 +37,14 @@ function removeProduct(event) {
   let lvl1parent = target.parentNode
   let lvl2parent = lvl1parent.parentNode
   lvl2parent.parentNode.removeChild(lvl2parent);
+
+  let newTotal = 0;
+  let subtotals = document.querySelectorAll('.subtotal span')
+  for (let i = 0; i < subtotals.length; i++) {
+    newTotal += Number(subtotals[i].innerHTML)
+  }
+  document.querySelector('#total-value span').innerHTML = newTotal
+
 }
 
 // ITERATION 5
